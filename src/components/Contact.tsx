@@ -4,8 +4,8 @@ export default function Contact() {
       <h2 className="mb-6 text-3xl font-bold">Contact</h2>
       <p className="mb-6">Have an opportunity or question? Reach out directly:</p>
       <a href="mailto:gatikyadav8205@gmail.com"
-         className="px-6 py-3 text-white transition rounded-lg shadow bg-brand hover:bg-brand-dark">
-        gatikyadav8205@gmail.com
+         className="px-6 py-3 mr-4 text-white transition rounded-lg shadow bg-brand hover:bg-brand-dark">
+        Email Me
       </a>
     </div>
   );

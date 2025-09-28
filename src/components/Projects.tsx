@@ -1,20 +1,17 @@
-// import React from 'react'
-
-const projects=[
+const projects = [
   {
-    title: "Digital Literacy ChatBot",
-    desc:'Node.js backend with OpenAI GroqAI API to teach digital tools.',
-    github:'https://github.com/Gatik8205/DLC_Chat_Bot_frontend',
-    live:'https://dlc-chat-bot-frontend.vercel.app/'
+    title: 'Digital Literacy ChatBot',
+    desc: 'Node.js backend with OpenAI/Groq API to teach digital tools.',
+    github: 'https://github.com/yourrepo',
+    demo:   'https://yourliveurl'
   },
-
   {
-    title: "Virtual Gallery Web App",
-    desc:'MERN stack with cloudinary image hosting.',
-    github:'https://github.com/Gatik8205/Virtual-Gallery-App',
-    live:'https://virtual-gallery-app.vercel.app/'
-  },
-]
+    title: 'Virtual Gallery Web App',
+    desc: 'MERN stack with Cloudinary image hosting.',
+    github: 'https://github.com/yourrepo',
+    demo:   'https://yourliveurl'
+  }
+];
 
 export default function Projects() {
   return (
@@ -27,9 +24,10 @@ export default function Projects() {
             <h3 className="mb-2 text-xl font-semibold">{p.title}</h3>
             <p className="mb-4">{p.desc}</p>
             <div className="space-x-4">
-              <a href={p.github} target="_blank" rel="noopener noreferrer" className="text-brand hover:underline">GitHub</a>
-              <a 
-              href={p.live} target="_blank" rel="noopener noreferer" className="text-brand hover:underline">Live Demo</a>
+              <a href={p.github} target="_blank" rel="noopener noreferrer"
+                 className="text-brand hover:underline">GitHub</a>
+              <a href={p.demo} target="_blank" rel="noopener noreferrer"
+                 className="text-brand hover:underline">Live Demo</a>
             </div>
           </div>
         ))}
