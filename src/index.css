@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+    scroll-behavior: smooth;
+}
+
+a[target="_blank"] {
+  text-decoration: underline;
+  color: #3b82f6;
+  transition: color 0.2s ease;
+}
+
+a[target="_blank"]:hover {
+  color: #2563eb;
+}
+
+a[target="_blank"]::after {
+  content: " ↗";
+  font-size: 0.8em;
+  color: inherit;
+}
