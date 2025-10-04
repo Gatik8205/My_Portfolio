@@ -2,14 +2,19 @@ const projects = [
   {
     title: 'Digital Literacy ChatBot',
     desc: 'Node.js backend with OpenAI/Groq API to teach digital tools.',
-    github: 'https://github.com/yourrepo',
-    demo:   'https://yourliveurl'
+    github: 'https://github.com/Gatik8205',
+    demo:   'https://dlc-chat-bot-frontend.vercel.app/'
   },
   {
     title: 'Virtual Gallery Web App',
     desc: 'MERN stack with Cloudinary image hosting.',
-    github: 'https://github.com/yourrepo',
-    demo:   'https://yourliveurl'
+    github: 'https://github.com/Gatik8205/Virtual-Gallery-App',
+    demo:   'https://virtual-gallery-app.vercel.app/'
+  },
+  {
+    title: 'Smart Surveillance System',
+    desc: 'AI-Based Smart Surveillance System using Image Processing',
+    github:'https://github.com/Gatik8205/smart_surveillance_system',
   }
 ];
 
