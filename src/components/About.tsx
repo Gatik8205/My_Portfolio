@@ -1,5 +1,5 @@
 export default function About() {
-  const skills = ['React','Node.js','MongoDB','Python','C++','TailwindCSS','Express.js','JavaScript','Html','CSS','Machine Learning','Git','Github'];
+  const skills = ['React.js','Node.js','MongoDB','Python','C++','TailwindCSS','Express.js','JavaScript','Html','CSS','Machine Learning','Git/Github','OpenCV'];
   return (
     <div className="max-w-6xl px-4 py-24 mx-auto">
       <h2 className="mb-8 text-3xl font-bold text-center">About Me</h2>
