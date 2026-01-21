@@ -12,9 +12,16 @@ const projects = [
     demo:   'https://virtual-gallery-app.vercel.app/'
   },
   {
-    title: 'Smart Surveillance System',
-    desc: 'AI-Based Smart Surveillance System using Image Processing',
+    title: 'Face Recognition System',
+    desc: 'AI-Based Face Recognition System using Image Processing',
     github:'https://github.com/Gatik8205/smart_surveillance_system',
+    // demo:''
+  },
+  {
+   title:'Document Fraud Detection',
+   desc:'AI/ML model to detect forged documents using Python and OpenCV.',
+   github:'https://github.com/Gatik8205/Document_Fraud_Detection', 
+  //  demo:''
   }
 ];
 
