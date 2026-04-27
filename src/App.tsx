@@ -28,7 +28,7 @@ const projects: Project[] = [
     desc: 'Hybrid CNN + Digital Forensics pipeline detecting forged documents using a ResNet18 backbone, Error Level Analysis, Grad-CAM heatmaps, ORB clone detection, and OCR metadata scoring. ~71% accuracy on 24K+ image dataset.',
     stack: ['PyTorch', 'FastAPI', 'React', 'OpenCV', 'ResNet18', 'Grad-CAM', 'ELA'],
     type: 'AI / ML',
-    github: 'https://github.com/Gatik8205',
+    github: 'https://github.com/Gatik8205/Document_Fraud_Detection',
     featured: true,
   },
   // {
@@ -54,21 +54,21 @@ const projects: Project[] = [
     desc: 'Real-time computer vision surveillance using OpenCV and Dlib for face detection, motion tracking, and anomaly alerting.',
     stack: ['Python', 'OpenCV', 'Dlib', 'CNN'],
     type: 'Computer Vision',
-    github: 'https://github.com/Gatik8205',
+    github: 'https://github.com/Gatik8205/smart_surveillance_system',
   },
   {
     title: 'Android Healthcare App',
     desc: 'Android mobile application for health record management, appointment booking, and user profiles built with Java and Android Studio.',
     stack: ['Java', 'Android Studio', 'XML', 'SQLite'],
     type: 'Mobile',
-    github: 'https://github.com/Gatik8205',
+    github: 'https://github.com/Gatik8205/HealthCareApp',
   },
   {
     title: 'Virtual Photo Gallery',
     desc: 'Interactive React gallery with dynamic grid rendering, category filtering, smooth lightbox transitions, and fully responsive layout.',
     stack: ['React', 'JavaScript', 'CSS3'],
     type: 'Frontend',
-    github: 'https://github.com/Gatik8205',
+    github: 'https://github.com/Gatik8205/Virtual-Gallery-App',
     live: 'https://virtual-gallery-app.vercel.app/login.html',
   },
 ]
