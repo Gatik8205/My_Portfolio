@@ -29,6 +29,7 @@ const projects: Project[] = [
     stack: ['PyTorch', 'FastAPI', 'React', 'OpenCV', 'ResNet18', 'Grad-CAM', 'ELA'],
     type: 'AI / ML',
     github: 'https://github.com/Gatik8205/Document_Fraud_Detection',
+    live : 'https://document-fraud-detection.vercel.app',
     featured: true,
   },
   // {
