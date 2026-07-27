@@ -1,10 +1,16 @@
-import { useState, useEffect } from 'react'
-import { FaDownload as DownloadIcon, FaBars as BarsIcon, FaXmark as CloseIcon } from 'react-icons/fa6'
+import { useState, useEffect, useRef } from 'react'
+import { FaDownload as DownloadIcon, FaBars as BarsIcon, FaXmark as CloseIcon, FaChevronDown, FaCode, FaBrain, FaFilePdf } from 'react-icons/fa6'
 
-export default function Navbar() {
+interface NavbarProps {
+  onOpenResumeModal?: () => void
+}
+
+export default function Navbar({ onOpenResumeModal }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,8 +28,18 @@ export default function Navbar() {
       if (current) setActiveSection(current)
     }
 
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false)
+      }
+    }
+
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
   }, [])
 
   const navLinks = [
@@ -70,16 +86,68 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Right CTA */}
-        <div className="hidden md:flex items-center gap-3">
-          <a
-            href="/Gatik_Yadav_Resume.pdf"
-            download
-            className="group relative inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono font-semibold text-[#05070f] bg-[#00e5ff] hover:bg-[#38bdf8] transition-all shadow-[0_0_20px_rgba(0,229,255,0.3)] hover:shadow-[0_0_25px_rgba(0,229,255,0.5)] active:scale-95"
+        {/* Right CTA - Desktop Dropdown */}
+        <div className="hidden md:flex items-center gap-3 relative" ref={dropdownRef}>
+          <button
+            onClick={() => setDropdownOpen(!dropdownOpen)}
+            className="group relative inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono font-semibold text-[#05070f] bg-[#00e5ff] hover:bg-[#38bdf8] transition-all shadow-[0_0_20px_rgba(0,229,255,0.3)] hover:shadow-[0_0_25px_rgba(0,229,255,0.5)] active:scale-95 cursor-pointer"
           >
             <DownloadIcon className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
             <span>Resume</span>
-          </a>
+            <FaChevronDown className={`w-3 h-3 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
+          </button>
+
+          {/* Quick Resume Dropdown */}
+          {dropdownOpen && (
+            <div className="absolute right-0 top-full mt-2 w-64 rounded-xl bg-[#0b0f19] border border-white/15 shadow-[0_10px_40px_rgba(0,0,0,0.8)] backdrop-blur-xl p-2 z-50 animate-fade-in">
+              <div className="px-3 py-1.5 text-[10px] font-mono uppercase tracking-wider text-gray-400 border-b border-white/10 mb-1 flex items-center gap-1.5">
+                <FaFilePdf className="w-3 h-3 text-[#00e5ff]" />
+                Select Role Resume
+              </div>
+
+              <a
+                href="/Gatik_Yadav_Resume_SDE.pdf"
+                download="Gatik_Yadav_Resume_SDE.pdf"
+                onClick={() => setDropdownOpen(false)}
+                className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-white/10 text-left transition-colors group"
+              >
+                <div className="p-2 rounded-md bg-cyan-500/10 text-cyan-400 group-hover:bg-cyan-500 group-hover:text-black transition-colors">
+                  <FaCode className="w-3.5 h-3.5" />
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-white group-hover:text-[#00e5ff]">SDE Resume</div>
+                  <div className="text-[10px] font-mono text-gray-400">Software & Full-Stack</div>
+                </div>
+              </a>
+
+              <a
+                href="/Gatik_Yadav_Resume_ML.pdf"
+                download="Gatik_Yadav_Resume_ML.pdf"
+                onClick={() => setDropdownOpen(false)}
+                className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-white/10 text-left transition-colors group"
+              >
+                <div className="p-2 rounded-md bg-purple-500/10 text-purple-300 group-hover:bg-purple-500 group-hover:text-black transition-colors">
+                  <FaBrain className="w-3.5 h-3.5" />
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-white group-hover:text-purple-300">ML / AI Resume</div>
+                  <div className="text-[10px] font-mono text-gray-400">Computer Vision & AI</div>
+                </div>
+              </a>
+
+              {onOpenResumeModal && (
+                <button
+                  onClick={() => {
+                    setDropdownOpen(false)
+                    onOpenResumeModal()
+                  }}
+                  className="w-full mt-1 pt-2 border-t border-white/10 text-[11px] font-mono text-[#00e5ff] hover:underline text-center block py-1"
+                >
+                  View Details & Compare →
+                </button>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Mobile Hamburger Toggle */}
@@ -109,17 +177,43 @@ export default function Navbar() {
               {link.name}
             </a>
           ))}
-          <a
-            href="/Gatik_Yadav_Resume.pdf"
-            download
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-mono font-semibold text-[#05070f] bg-[#00e5ff] mt-2 shadow-[0_0_15px_rgba(0,229,255,0.3)]"
-          >
-            <DownloadIcon className="w-4 h-4" />
-            <span>Download Resume</span>
-          </a>
+          <div className="pt-2 border-t border-white/10 flex flex-col gap-2">
+            <span className="text-[11px] font-mono text-gray-400">Download Resume:</span>
+            <div className="grid grid-cols-2 gap-2">
+              <a
+                href="/Gatik_Yadav_Resume_SDE.pdf"
+                download="Gatik_Yadav_Resume_SDE.pdf"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg text-xs font-mono font-semibold text-white bg-cyan-500/20 border border-cyan-500/30 active:scale-95"
+              >
+                <FaCode className="w-3.5 h-3.5 text-cyan-400" />
+                <span>SDE PDF</span>
+              </a>
+              <a
+                href="/Gatik_Yadav_Resume_ML.pdf"
+                download="Gatik_Yadav_Resume_ML.pdf"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg text-xs font-mono font-semibold text-white bg-purple-500/20 border border-purple-500/30 active:scale-95"
+              >
+                <FaBrain className="w-3.5 h-3.5 text-purple-400" />
+                <span>ML PDF</span>
+              </a>
+            </div>
+            {onOpenResumeModal && (
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false)
+                  onOpenResumeModal()
+                }}
+                className="w-full text-center py-2 text-xs font-mono text-[#00e5ff] hover:underline"
+              >
+                Compare Both Resumes →
+              </button>
+            )}
+          </div>
         </div>
       )}
     </nav>
   )
 }
+

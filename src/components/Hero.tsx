@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react'
 import { FaGithub, FaLinkedinIn, FaEnvelope, FaArrowRight, FaCode, FaBrain, FaTerminal, FaWandMagicSparkles, FaDownload } from 'react-icons/fa6'
 
-export default function Hero() {
+interface HeroProps {
+  onOpenResumeModal?: () => void
+}
+
+export default function Hero({ onOpenResumeModal }: HeroProps) {
   const roles = [
     'Full-Stack Developer',
     'AI & Machine Learning Engineer',
@@ -49,7 +53,7 @@ export default function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span>Open to SDE & ML Internships (2025)</span>
+            <span>Open to SDE & ML Internships (2025/2026)</span>
           </div>
 
           {/* Heading */}
@@ -82,14 +86,13 @@ export default function Hero() {
               <FaArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </a>
 
-            <a
-              href="/Gatik_Yadav_Resume.pdf"
-              download
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-mono text-sm font-semibold text-white bg-white/10 border border-white/20 hover:bg-white/20 transition-all duration-200 backdrop-blur-md"
+            <button
+              onClick={onOpenResumeModal}
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-mono text-sm font-semibold text-white bg-white/10 border border-white/20 hover:bg-white/20 transition-all duration-200 backdrop-blur-md cursor-pointer group"
             >
-              <FaDownload className="w-3.5 h-3.5 text-[#00e5ff]" />
-              <span>Resume</span>
-            </a>
+              <FaDownload className="w-3.5 h-3.5 text-[#00e5ff] group-hover:translate-y-0.5 transition-transform" />
+              <span>Resumes (SDE / ML)</span>
+            </button>
 
             <a
               href="#spotlight"
