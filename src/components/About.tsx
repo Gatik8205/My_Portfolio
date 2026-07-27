@@ -1,5 +1,4 @@
 import { FaGraduationCap, FaRocket, FaUserCheck, FaLaptopCode } from 'react-icons/fa6'
-import { motion } from 'framer-motion'
 
 export default function About() {
   const stats = [
@@ -42,7 +41,7 @@ export default function About() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00e5ff]/10 border border-[#00e5ff]/20 text-[#00e5ff] text-xs font-mono mb-3">
             <span>01 / ABOUT ME</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold font-['Outfit'] text-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold font-sans text-white tracking-tight">
             Building Systems at the <br />
             <span className="bg-gradient-to-r from-[#00e5ff] to-[#818cf8] bg-clip-text text-transparent">
               Intersection of Code & Intelligence
@@ -54,13 +53,7 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
           {/* Left Narrative */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-7 space-y-5 text-gray-300 text-base sm:text-lg leading-relaxed font-['Space_Grotesk']"
-          >
+          <div className="lg:col-span-7 space-y-5 text-gray-300 text-base sm:text-lg leading-relaxed font-sans">
             <p>
               I am a Computer Science & Engineering undergraduate at <strong className="text-white">Jaypee University of Engineering and Technology (JUET), Guna</strong>. I thrive on translating theoretical concepts into deployable, user-focused software applications.
             </p>
@@ -70,16 +63,10 @@ export default function About() {
             <p className="text-sm text-gray-400 bg-white/[0.02] p-4 rounded-2xl border border-white/10">
               💡 <strong className="text-gray-200">Current Focus:</strong> Seeking SDE and Machine Learning Internship opportunities where I can solve real-world engineering problems and deliver impactful software.
             </p>
-          </motion.div>
+          </div>
 
           {/* Right Metrics Grid */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5 grid grid-cols-2 gap-4"
-          >
+          <div className="lg:col-span-5 grid grid-cols-2 gap-4">
             {stats.map((stat, idx) => (
               <div
                 key={idx}
@@ -87,14 +74,14 @@ export default function About() {
               >
                 <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${stat.glow} blur-2xl rounded-full -mr-8 -mt-8 pointer-events-none`} />
                 <div className="mb-3">{stat.icon}</div>
-                <div className="text-3xl font-extrabold font-['Outfit'] text-white group-hover:text-[#00e5ff] transition-colors">
+                <div className="text-3xl font-extrabold font-sans text-white group-hover:text-[#00e5ff] transition-colors">
                   {stat.value}
                 </div>
                 <div className="text-xs font-bold text-gray-200 mt-1">{stat.label}</div>
                 <div className="text-[11px] font-mono text-gray-400 mt-0.5">{stat.sub}</div>
               </div>
             ))}
-          </motion.div>
+          </div>
 
         </div>
 

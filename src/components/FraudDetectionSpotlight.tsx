@@ -1,5 +1,4 @@
-import { FaShieldHalved, FaEye, FaGithub, FaExternalLinkAlt, FaBrain, FaChartLine, FaDiagramProject } from 'react-icons/fa6'
-import { motion } from 'framer-motion'
+import { FaShieldHalved, FaEye, FaGithub, FaUpRightFromSquare, FaDiagramProject } from 'react-icons/fa6'
 
 export default function FraudDetectionSpotlight() {
   const pipelineSteps = [
@@ -26,7 +25,7 @@ export default function FraudDetectionSpotlight() {
         {/* Main Spotlight Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12">
           <div className="lg:col-span-8">
-            <h2 className="text-3xl sm:text-5xl font-extrabold font-['Outfit'] text-white tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-5xl font-extrabold font-sans text-white tracking-tight leading-tight">
               AI Document Fraud Detection & <br />
               <span className="bg-gradient-to-r from-[#00e5ff] via-[#38bdf8] to-[#818cf8] bg-clip-text text-transparent">
                 Digital Forensics Pipeline
@@ -42,7 +41,7 @@ export default function FraudDetectionSpotlight() {
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-mono text-xs font-bold text-[#05070f] bg-[#00e5ff] hover:bg-[#38bdf8] transition-all shadow-[0_0_20px_rgba(0,229,255,0.4)]"
             >
               <span>Live Application</span>
-              <FaExternalLinkAlt className="w-3 h-3" />
+              <FaUpRightFromSquare className="w-3 h-3" />
             </a>
             <a
               href="https://github.com/Gatik8205/Document_Fraud_Detection"
@@ -60,29 +59,23 @@ export default function FraudDetectionSpotlight() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
           {/* Pipeline Details Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-7 bg-[#0d1222]/90 border border-white/15 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl space-y-6"
-          >
-            <p className="text-gray-300 text-base leading-relaxed font-['Space_Grotesk']">
+          <div className="lg:col-span-7 bg-[#0d1222]/90 border border-white/15 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl space-y-6">
+            <p className="text-gray-300 text-base leading-relaxed font-sans">
               A hybrid machine learning and computer vision pipeline designed to combat forged identities and tampered official documentation. Evaluated over a <strong className="text-white">24,000+ image dataset</strong> achieving <strong className="text-[#00e5ff]">~71% validation accuracy</strong> across synthetic forgeries.
             </p>
 
             {/* Metrics Row */}
             <div className="grid grid-cols-3 gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/10">
               <div>
-                <div className="text-2xl font-extrabold font-['Outfit'] text-[#00e5ff]">~71%</div>
+                <div className="text-2xl font-extrabold font-sans text-[#00e5ff]">~71%</div>
                 <div className="text-[11px] font-mono text-gray-400 mt-0.5">Model Accuracy</div>
               </div>
               <div>
-                <div className="text-2xl font-extrabold font-['Outfit'] text-indigo-400">24K+</div>
+                <div className="text-2xl font-extrabold font-sans text-indigo-400">24K+</div>
                 <div className="text-[11px] font-mono text-gray-400 mt-0.5">Dataset Samples</div>
               </div>
               <div>
-                <div className="text-2xl font-extrabold font-['Outfit'] text-emerald-400">5-Layer</div>
+                <div className="text-2xl font-extrabold font-sans text-emerald-400">5-Layer</div>
                 <div className="text-[11px] font-mono text-gray-400 mt-0.5">Forensics Pipeline</div>
               </div>
             </div>
@@ -108,16 +101,10 @@ export default function FraudDetectionSpotlight() {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Interactive Heatmap & Forensics Visual Demo Card */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-5 bg-[#0a0e1c] border border-white/10 rounded-3xl p-6 relative overflow-hidden shadow-2xl"
-          >
+          <div className="lg:col-span-5 bg-[#0a0e1c] border border-white/10 rounded-3xl p-6 relative overflow-hidden shadow-2xl">
             {/* Header Mock */}
             <div className="flex items-center justify-between mb-4 border-b border-white/10 pb-3">
               <div className="flex items-center gap-2">
@@ -147,7 +134,7 @@ export default function FraudDetectionSpotlight() {
                 </div>
 
                 <div className="relative z-10 text-right">
-                  <div className="text-lg font-bold font-['Outfit'] text-red-400">89.4% Forgery Conf.</div>
+                  <div className="text-lg font-bold font-sans text-red-400">89.4% Forgery Conf.</div>
                   <div className="text-[10px] text-gray-400">Grad-CAM Alert @ Region [X:140, Y:82]</div>
                 </div>
               </div>
@@ -180,7 +167,7 @@ export default function FraudDetectionSpotlight() {
                 </span>
               ))}
             </div>
-          </motion.div>
+          </div>
 
         </div>
 

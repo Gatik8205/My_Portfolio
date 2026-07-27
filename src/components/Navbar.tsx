@@ -44,7 +44,7 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Brand Logo */}
-        <a href="#home" className="group flex items-center gap-2 text-xl font-bold font-[#font-display] text-white tracking-tight">
+        <a href="#home" className="group flex items-center gap-2 text-xl font-bold font-sans text-white tracking-tight">
           <span className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#00e5ff] to-[#6366f1] text-[#05070f] flex items-center justify-center font-extrabold text-sm shadow-[0_0_15px_rgba(0,229,255,0.4)] group-hover:scale-105 transition-transform">
             GY
           </span>
@@ -94,7 +94,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-[#070a14]/95 backdrop-blur-2xl border-b border-white/10 p-6 flex flex-col gap-4 shadow-2xl animate-in slide-in-from-top duration-200">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-[#070a14]/95 backdrop-blur-2xl border-b border-white/10 p-6 flex flex-col gap-4 shadow-2xl transition-all duration-200">
           {navLinks.map(link => (
             <a
               key={link.id}

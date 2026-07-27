@@ -20,7 +20,6 @@ import {
   SiRender as RenderIcon,
 } from 'react-icons/si'
 import { FaCode, FaServer, FaBrain, FaDatabase, FaWrench } from 'react-icons/fa6'
-import { motion } from 'framer-motion'
 
 interface SkillItem {
   name: string
@@ -120,7 +119,7 @@ export default function Skills() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00e5ff]/10 border border-[#00e5ff]/20 text-[#00e5ff] text-xs font-mono mb-3">
               <span>02 / TECHNICAL SKILLS</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold font-['Outfit'] text-white tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-extrabold font-sans text-white tracking-tight">
               Technologies I Build With
             </h2>
           </div>
@@ -131,7 +130,7 @@ export default function Skills() {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium transition-all duration-200 ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium transition-all duration-200 cursor-pointer ${
                   activeTab === tab
                     ? 'bg-[#00e5ff] text-[#05070f] font-bold shadow-[0_0_15px_rgba(0,229,255,0.4)]'
                     : 'text-gray-400 hover:text-white hover:bg-white/5'
@@ -145,13 +144,9 @@ export default function Skills() {
 
         {/* Skill Category Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCategories.map((category, idx) => (
-            <motion.div
+          {filteredCategories.map((category) => (
+            <div
               key={category.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.08 }}
               className="relative group p-6 rounded-2xl bg-[#0d1222]/80 border border-white/10 backdrop-blur-xl hover:border-white/20 transition-all duration-300 hover:-translate-y-1.5 shadow-xl flex flex-col justify-between"
             >
               {/* Category Header */}
@@ -167,7 +162,7 @@ export default function Skills() {
                   >
                     {category.icon}
                   </div>
-                  <h3 className="text-lg font-bold font-['Outfit'] text-white">
+                  <h3 className="text-lg font-bold font-sans text-white">
                     {category.title}
                   </h3>
                 </div>
@@ -202,7 +197,7 @@ export default function Skills() {
                   background: `linear-gradient(to right, ${category.color}, transparent)`,
                 }}
               />
-            </motion.div>
+            </div>
           ))}
         </div>
 

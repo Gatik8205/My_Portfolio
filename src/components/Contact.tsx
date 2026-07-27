@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { FaEnvelope, FaLinkedinIn, FaGithub, FaPaperPlane, FaLocationDot, FaCircleCheck } from 'react-icons/fa6'
-import { motion } from 'framer-motion'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -40,7 +39,7 @@ export default function Contact() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00e5ff]/10 border border-[#00e5ff]/20 text-[#00e5ff] text-xs font-mono mb-3">
             <span>04 / CONTACT ME</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold font-['Outfit'] text-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold font-sans text-white tracking-tight">
             Let's Build Something <br />
             <span className="bg-gradient-to-r from-[#00e5ff] via-[#818cf8] to-[#c084fc] bg-clip-text text-transparent">
               Exceptional Together
@@ -51,14 +50,8 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
           {/* Left Column: Direct Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-5 space-y-6"
-          >
-            <p className="text-gray-300 text-base leading-relaxed font-['Space_Grotesk']">
+          <div className="lg:col-span-5 space-y-6">
+            <p className="text-gray-300 text-base leading-relaxed font-sans">
               I am actively seeking <strong className="text-white">Software Development (SDE)</strong> and <strong className="text-white">Machine Learning (ML) Internship</strong> opportunities. Feel free to reach out for collaborations, project inquiries, or just a tech chat!
             </p>
 
@@ -129,33 +122,27 @@ export default function Contact() {
                 <span>LinkedIn</span>
               </a>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: Interactive Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-7 bg-[#0d1222]/90 border border-white/15 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl"
-          >
+          <div className="lg:col-span-7 bg-[#0d1222]/90 border border-white/15 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl">
             {submitted ? (
               <div className="text-center py-12 space-y-4">
                 <FaCircleCheck className="w-16 h-16 text-emerald-400 mx-auto animate-bounce" />
-                <h3 className="text-2xl font-bold font-['Outfit'] text-white">Message Dispatched!</h3>
-                <p className="text-gray-300 text-sm max-w-md mx-auto font-['Space_Grotesk']">
+                <h3 className="text-2xl font-bold font-sans text-white">Message Dispatched!</h3>
+                <p className="text-gray-300 text-sm max-w-md mx-auto font-sans">
                   Your mail client has been launched with your message details. I will get back to you within 24 hours!
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="px-5 py-2.5 rounded-xl font-mono text-xs text-[#00e5ff] bg-white/5 border border-[#00e5ff]/30 hover:bg-[#00e5ff]/10 transition-all mt-4"
+                  className="px-5 py-2.5 rounded-xl font-mono text-xs text-[#00e5ff] bg-white/5 border border-[#00e5ff]/30 hover:bg-[#00e5ff]/10 transition-all mt-4 cursor-pointer"
                 >
                   Send Another Message
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                <h3 className="text-xl font-bold font-['Outfit'] text-white mb-2">
+                <h3 className="text-xl font-bold font-sans text-white mb-2">
                   Send a Direct Message
                 </h3>
 
@@ -168,7 +155,7 @@ export default function Contact() {
                       placeholder="e.g. Alex Smith"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00e5ff]/60 font-['Space_Grotesk']"
+                      className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00e5ff]/60 font-sans"
                     />
                   </div>
 
@@ -180,7 +167,7 @@ export default function Contact() {
                       placeholder="alex@company.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00e5ff]/60 font-['Space_Grotesk']"
+                      className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00e5ff]/60 font-sans"
                     />
                   </div>
                 </div>
@@ -193,7 +180,7 @@ export default function Contact() {
                     placeholder="SDE Internship / Project Inquiry"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00e5ff]/60 font-['Space_Grotesk']"
+                    className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00e5ff]/60 font-sans"
                   />
                 </div>
 
@@ -205,7 +192,7 @@ export default function Contact() {
                     placeholder="Hi Gatik, I saw your portfolio and would like to discuss..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00e5ff]/60 font-['Space_Grotesk'] resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00e5ff]/60 font-sans resize-none"
                   ></textarea>
                 </div>
 
@@ -225,7 +212,7 @@ export default function Contact() {
                 </button>
               </form>
             )}
-          </motion.div>
+          </div>
 
         </div>
 

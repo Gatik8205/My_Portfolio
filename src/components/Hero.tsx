@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-import { FaGithub, FaLinkedinIn, FaEnvelope, FaArrowRight, FaCode, FaBrain, FaTerminal, FaSparkles } from 'react-icons/fa6'
-import { motion } from 'framer-motion'
+import { FaGithub, FaLinkedinIn, FaEnvelope, FaArrowRight, FaCode, FaBrain, FaTerminal, FaWandMagicSparkles, FaDownload } from 'react-icons/fa6'
 
 export default function Hero() {
   const roles = [
@@ -42,12 +41,8 @@ export default function Hero() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center z-10">
 
         {/* Left Column - Main Hero Content */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="lg:col-span-7 flex flex-col items-start"
-        >
+        <div className="lg:col-span-7 flex flex-col items-start transition-all duration-700">
+
           {/* Availability Status Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono mb-6 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
             <span className="relative flex h-2 w-2">
@@ -58,7 +53,7 @@ export default function Hero() {
           </div>
 
           {/* Heading */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white font-['Outfit'] leading-[1.08] mb-4">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white font-sans leading-[1.08] mb-4">
             Hello, I'm <br />
             <span className="bg-gradient-to-r from-[#00e5ff] via-[#818cf8] to-[#c084fc] bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(0,229,255,0.4)]">
               Gatik Yadav
@@ -73,7 +68,7 @@ export default function Hero() {
           </div>
 
           {/* Tagline Description */}
-          <p className="text-gray-300 text-base sm:text-lg max-w-xl leading-relaxed mb-8 font-['Space_Grotesk']">
+          <p className="text-gray-300 text-base sm:text-lg max-w-xl leading-relaxed mb-8 font-sans">
             Passionate CS undergraduate building intelligent web applications, computer vision systems, and deep learning pipelines. Focused on shipping production-ready projects.
           </p>
 
@@ -88,10 +83,19 @@ export default function Hero() {
             </a>
 
             <a
+              href="/Gatik_Yadav_Resume.pdf"
+              download
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-mono text-sm font-semibold text-white bg-white/10 border border-white/20 hover:bg-white/20 transition-all duration-200 backdrop-blur-md"
+            >
+              <FaDownload className="w-3.5 h-3.5 text-[#00e5ff]" />
+              <span>Resume</span>
+            </a>
+
+            <a
               href="#spotlight"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-mono text-sm font-semibold text-[#00e5ff] bg-white/[0.03] border border-[#00e5ff]/30 hover:bg-[#00e5ff]/10 hover:border-[#00e5ff]/60 transition-all duration-200 backdrop-blur-md"
             >
-              <FaSparkles className="w-3.5 h-3.5 text-[#00e5ff]" />
+              <FaWandMagicSparkles className="w-3.5 h-3.5 text-[#00e5ff]" />
               <span>AI Spotlight</span>
             </a>
           </div>
@@ -125,15 +129,10 @@ export default function Hero() {
             </a>
             <span className="text-xs font-mono text-gray-500 ml-2">gatikyadav8205@gmail.com</span>
           </div>
-        </motion.div>
+        </div>
 
         {/* Right Column - Visual Code Card Showcase */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="lg:col-span-5 relative"
-        >
+        <div className="lg:col-span-5 relative transition-all duration-700">
           {/* Card Container */}
           <div className="relative rounded-2xl bg-[#0d1222]/90 border border-white/15 p-6 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.6)] overflow-hidden group">
             {/* Top Code Header Bar */}
@@ -218,7 +217,7 @@ export default function Hero() {
 
           {/* Decorative Glowing Accent behind card */}
           <div className="absolute -inset-1 bg-gradient-to-r from-[#00e5ff] to-[#6366f1] rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity -z-10" />
-        </motion.div>
+        </div>
 
       </div>
     </section>

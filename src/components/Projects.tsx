@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { FaGithub, FaExternalLinkAlt, FaStar, FaFilter, FaMagnifyingGlass } from 'react-icons/fa6'
-import { motion } from 'framer-motion'
+import { FaGithub, FaUpRightFromSquare, FaStar, FaMagnifyingGlass } from 'react-icons/fa6'
 
 interface Project {
   title: string
@@ -37,14 +36,7 @@ export default function Projects() {
       live: 'https://dlc-chat-bot-frontend.vercel.app/',
       featured: true,
     },
-    {
-      title: 'MERN Job Application Tracker',
-      desc: 'Full-stack application tracker with status pipeline management, customizable filters, interactive analytics dashboard, and JWT-secured user authentication.',
-      stack: ['MongoDB', 'Express.js', 'React', 'Node.js', 'JWT', 'Render'],
-      type: 'Full Stack',
-      github: 'https://github.com/Gatik8205',
-      featured: true,
-    },
+
     {
       title: 'CV Surveillance System',
       desc: 'Real-time computer vision surveillance using OpenCV and Dlib for multi-face detection, motion tracking, and automated anomaly alerting.',
@@ -90,7 +82,7 @@ export default function Projects() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00e5ff]/10 border border-[#00e5ff]/20 text-[#00e5ff] text-xs font-mono mb-3">
               <span>03 / FEATURED WORK</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold font-['Outfit'] text-white tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-extrabold font-sans text-white tracking-tight">
               Projects & Engineering Work
             </h2>
           </div>
@@ -115,7 +107,7 @@ export default function Projects() {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-mono font-medium whitespace-nowrap transition-all duration-200 ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-mono font-medium whitespace-nowrap transition-all duration-200 cursor-pointer ${
                     selectedCategory === cat
                       ? 'bg-[#00e5ff] text-[#05070f] font-bold shadow-[0_0_12px_rgba(0,229,255,0.3)]'
                       : 'text-gray-400 hover:text-white hover:bg-white/5'
@@ -130,13 +122,9 @@ export default function Projects() {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project, idx) => (
-            <motion.div
+          {filteredProjects.map((project) => (
+            <div
               key={project.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.08 }}
               className="group relative flex flex-col justify-between p-6 rounded-2xl bg-[#0d1222]/90 border border-white/10 backdrop-blur-xl hover:border-[#00e5ff]/40 transition-all duration-300 hover:-translate-y-2 shadow-xl"
             >
               <div>
@@ -155,12 +143,12 @@ export default function Projects() {
                 </div>
 
                 {/* Project Title */}
-                <h3 className="text-xl font-bold font-['Outfit'] text-white group-hover:text-[#00e5ff] transition-colors mb-3 leading-snug">
+                <h3 className="text-xl font-bold font-sans text-white group-hover:text-[#00e5ff] transition-colors mb-3 leading-snug">
                   {project.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-300 text-sm leading-relaxed mb-6 font-['Space_Grotesk'] line-clamp-4">
+                <p className="text-gray-300 text-sm leading-relaxed mb-6 font-sans line-clamp-4">
                   {project.desc}
                 </p>
               </div>
@@ -211,12 +199,12 @@ export default function Projects() {
                       className="flex items-center gap-1.5 text-xs font-mono font-semibold text-[#00e5ff] hover:text-[#38bdf8] ml-auto transition-colors"
                     >
                       <span>Live Demo</span>
-                      <FaExternalLinkAlt className="w-3 h-3" />
+                      <FaUpRightFromSquare className="w-3 h-3" />
                     </a>
                   )}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
